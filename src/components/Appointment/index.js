@@ -47,8 +47,6 @@ export default function Appointment(props) {
   };
 
 
-
-
   return (
     <Fragment>
    <Header time={props.time}/>
