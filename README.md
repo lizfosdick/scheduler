@@ -23,3 +23,8 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screenshots
+
+!["Appointment List and Schedule"](https://github.com/lizfosdick/scheduler/blob/master/Docs/daily-appointments.png?raw=true)
+!["New appointment form"](https://github.com/lizfosdick/scheduler/blob/master/Docs/new-appointment-form.png?raw=true)
