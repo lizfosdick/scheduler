@@ -19,4 +19,4 @@ export default function DayList(props) {
     <ul>{individualDays}</ul>
   );
   
-}
+};

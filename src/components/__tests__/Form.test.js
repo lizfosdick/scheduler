@@ -1,7 +1,6 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import Form from "components/Appointment/Form";
-import { fireEvent } from "@testing-library/react";
 
 afterEach(cleanup);
 
@@ -14,12 +13,18 @@ describe("Form", () => {
     }
   ];
 
+
+  //ONE
+
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />
     );
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
+
+
+  //TWO
 
   it("renders with initial student name", () => {
     const { getByTestId } = render(
@@ -58,7 +63,7 @@ describe("Form", () => {
     expect(onSave).not.toHaveBeenCalled();
   });
 
-//NEW FIVE
+//FIVE
 
   it("can successfully save after trying to submit an empty student name", () => {
     const onSave = jest.fn();
@@ -83,7 +88,7 @@ describe("Form", () => {
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
   });
 
-  //NEW SIX
+  //SIX
 
   it("calls onCancel and resets the input field", () => {
     const onCancel = jest.fn();

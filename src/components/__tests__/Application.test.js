@@ -1,7 +1,5 @@
 import React from "react";
-
 import axios from "axios";
-
 import { 
   render, 
   cleanup, 
@@ -14,13 +12,14 @@ import {
   queryByText, 
   queryByAltText, 
  } from "@testing-library/react";
-
 import Application from "components/Application";
-
 
 afterEach(cleanup);
 
 describe("Application", () => {
+
+
+//ONE
 
 it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
@@ -31,6 +30,9 @@ it("changes the schedule when a new day is selected", async () => {
 
   expect(getByText("Leopold Silvers")).toBeInTheDocument();
 });
+
+
+//TWO
 
 it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
   const { container } = render(<Application />);
@@ -61,6 +63,8 @@ it("loads data, books an interview and reduces the spots remaining for the first
 })
 
 
+//THREE
+
 it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
   const { container } = render(<Application />);
   
@@ -89,6 +93,8 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
 });
 
 
+//FOUR
+
 it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
 
   const { container } = render(<Application />);
@@ -111,8 +117,10 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
 
   expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
-
 });
+
+
+//FIVE
 
 it("shows the save error when failing to save an appointment", async () => {
 
@@ -143,6 +151,9 @@ it("shows the save error when failing to save an appointment", async () => {
   expect(getByPlaceholderText(appointment, /enter student name/i)).toBeInTheDocument();
 
 });
+
+
+//SIX
 
 it("shows the save error when failing to delete an existing appointment", async () => {
 

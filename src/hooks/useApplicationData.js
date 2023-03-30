@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -12,7 +12,6 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
-
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -25,7 +24,6 @@ export default function useApplicationData() {
       setState(prev => ({...prev, days, appointments, interviewers}))
     });
   }, []);
-
 
   function updateSpots(state, newAppointments, id) {
     let spots = {
@@ -45,18 +43,17 @@ export default function useApplicationData() {
       if (newAppointments[appointmentID] && newAppointments[appointmentID].interview === null) {
         spots.remainingSpots++;
       }
-    })
+    });
 
     const updatedDay = {
       ...state.days[spots.dayID-1],
       spots: spots.remainingSpots
-    }
+    };
 
     const days = [...state.days]
     days[spots.dayID-1] = updatedDay;
 
     return days;
-
   }
 
 
@@ -97,8 +94,8 @@ export default function useApplicationData() {
           days,
           appointments})
         );
-      })
-  }
+      });
+  };
 
-  return { state, setDay, bookInterview, cancelInterview}
+  return { state, setDay, bookInterview, cancelInterview }
 };

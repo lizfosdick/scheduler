@@ -15,7 +15,7 @@ export default function Form(props) {
   const cancel = () => {
     reset();
     props.onCancel();
-  }
+  };
 
   function validate() {
     if (student === "") {
@@ -29,7 +29,7 @@ export default function Form(props) {
 
     setError("");
     props.onSave(student, interviewer);
-  }
+  };
   
   const [error, setError] = useState("");
 

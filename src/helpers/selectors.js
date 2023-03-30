@@ -10,7 +10,7 @@ export function getAppointmentsForDay(state, day) {
     return state.appointments[id];
   });
   return resultArray;
-}
+};
 
 
 export function getInterview(state, interview) {
@@ -22,10 +22,10 @@ export function getInterview(state, interview) {
   const interviewDetails = {
     student: interview.student,
     interviewer: state.interviewers[interviewerId]
-  }
+  };
 
   return interviewDetails;
-}
+};
 
 
 export function getInterviewersForDay(state, day) {
@@ -40,4 +40,4 @@ export function getInterviewersForDay(state, day) {
     return state.interviewers[id];
   });
   return resultArray;
-}
+};
